@@ -11,6 +11,7 @@ namespace dm.ffmods.combattweaks
         public const string ConfigPath = "UserData/CombatTweaksConfig.cfg";
         private uint checkIntervalInSeconds = 3;
         private ConfigManager configManager;
+        private bool modifyRaids = true;
         private bool setupDone0 = false;
         private float timeSinceLastCheckInSeconds = 0f;
         private bool verbose = true;
@@ -21,6 +22,7 @@ namespace dm.ffmods.combattweaks
 
         public ConfigManager ConfigManager { get => configManager; }
         public bool HasInitalised { get; private set; }
+        public bool ModifyRaids { get => modifyRaids; }
         public bool Verbose { get => verbose; }
 
         #endregion Properties
@@ -32,6 +34,7 @@ namespace dm.ffmods.combattweaks
             LoggerInstance.Msg("Setting up CombatTweaks mod ...");
             configManager = new ConfigManager(ConfigPath);
             verbose = ConfigManager.IsVerbose;
+            modifyRaids = ConfigManager.ModifyRaidSetup;
         }
 
         public override void OnLateUpdate()

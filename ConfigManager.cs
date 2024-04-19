@@ -20,6 +20,8 @@ namespace dm.ffmods.combattweaks
 
         public static uint MinRamsPerRaidGroup = 0;
 
+        public static bool ModifyRaidSetup = true;
+
         // pref category for the mod
         public static MelonPreferences_Category RaidPrefs;
 
@@ -33,6 +35,7 @@ namespace dm.ffmods.combattweaks
         private MelonPreferences_Entry<uint> maxRamsEntry;
         private MelonPreferences_Entry<uint> minCatapultsEntry;
         private MelonPreferences_Entry<uint> minRamsEntry;
+        private MelonPreferences_Entry<bool> modifyRaidSetupEntry;
         private MelonPreferences_Entry<bool> soldierDropsEntry;
 
         #endregion Fields
@@ -49,6 +52,7 @@ namespace dm.ffmods.combattweaks
             VillagerPrefs.SetFilePath(prefsPath);
 
             isVerboseEntry = SetupPrefs.CreateEntry<bool>("verboseLogging", IsVerbose);
+            modifyRaidSetupEntry = RaidPrefs.CreateEntry<bool>("ModifyRaidSetup", ModifyRaidSetup);
             minCatapultsEntry = RaidPrefs.CreateEntry<uint>("MinCatapultsPerRaidGroup", MinCatapultsPerRaidGroup);
             maxCatapultsEntry = RaidPrefs.CreateEntry<uint>("MaxCatapultsPerRaidGroup", MaxCatapultsPerRaidGroup);
             minRamsEntry = RaidPrefs.CreateEntry<uint>("MinRamsPerRaidGroup", MinRamsPerRaidGroup);
@@ -79,6 +83,7 @@ namespace dm.ffmods.combattweaks
             HuntersDropEquipment = hunterDropsEntry.Value;
             GuardsDropEquipment = guardDropsEntry.Value;
             SoldiersDropEquipment = soldierDropsEntry.Value;
+            ModifyRaidSetup = modifyRaidSetupEntry.Value;
 
             IsInitialised = true;
         }

@@ -52,6 +52,11 @@ namespace dm.ffmods.combattweaks
 
         public static void UpdateRaidSetup(RaidGroupSetupData raidGroupSetupData)
         {
+            if (ConfigManager.ModifyRaidSetup == false)
+            {
+                Melon<CombatTweaksMelon>.Logger.Msg($"ModifyRaidSetup is set to {ConfigManager.ModifyRaidSetup}, skipping raid setup edit...");
+                return;
+            }
             Melon<CombatTweaksMelon>.Logger.Msg($"modifying raider group setup with name: {raidGroupSetupData.name}");
             raidGroupSetupData.numBatteringRamsToSpawnMin = (int)ConfigManager.MinRamsPerRaidGroup;
             raidGroupSetupData.numBatteringRamsToSpawnMax = (int)ConfigManager.MaxRamsPerRaidGroup;
