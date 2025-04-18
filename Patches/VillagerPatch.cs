@@ -1,7 +1,7 @@
 using dm.ffmods.combattweaks;
 using HarmonyLib;
-using Il2Cpp;
 using MelonLoader;
+using System;
 using UnityEngine;
 using static MelonLoader.MelonLogger;
 

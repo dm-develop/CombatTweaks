@@ -1,6 +1,6 @@
 ﻿using HarmonyLib;
-using Il2Cpp;
 using MelonLoader;
+using System;
 using UnityEngine;
 
 namespace dm.ffmods.combattweaks
